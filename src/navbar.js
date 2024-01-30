@@ -1,9 +1,14 @@
+// Navbar.js
 import React, { useState, useEffect } from 'react';
-import { Router, Link } from "@reach/router";
+import { Link } from "@reach/router";
 import './Navbar.css';
-import logoImage from './img/logo.png'; // Pfade zum Bild anpassen
+import logoImage from './img/logo.png';
+import Anmeldung from './Anmeldung.js';
+
 const Navbar = () => {
   const [isSticky, setSticky] = useState(false);
+  const [isAnmeldungOpen, setAnmeldungOpen] = useState(false);
+  const [isRegistrierenOpen, setRegistrierenOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,15 +22,37 @@ const Navbar = () => {
     };
   }, []);
 
+  const openAnmeldung = () => {
+    setAnmeldungOpen(true);
+    setRegistrierenOpen(false);
+  };
+
+  const openRegistrieren = () => {
+    setAnmeldungOpen(false);
+    setRegistrierenOpen(true);
+  };
+
+  const closeAnmeldungRegistrieren = () => {
+    setAnmeldungOpen(false);
+    setRegistrierenOpen(false);
+  };
+
   return (
     <div className={`navbar ${isSticky ? 'sticky' : ''}`}>
       <Link to="/">
         <img src={logoImage} alt="Logo" className="logo" />
       </Link>
       <div className="buttons">
-        <button>Anmelden</button>
-        <button>Registrieren</button>
+        <button onClick={openAnmeldung}>Anmelden</button>
+        <button onClick={openRegistrieren}>Registrieren</button>
       </div>
+      {(isAnmeldungOpen || isRegistrierenOpen) && (
+        <Anmeldung
+          isOpen={isAnmeldungOpen || isRegistrierenOpen}
+          onClose={closeAnmeldungRegistrieren}
+          action={isRegistrierenOpen ? 'register' : 'login'}
+        />
+      )}
     </div>
   );
 };
