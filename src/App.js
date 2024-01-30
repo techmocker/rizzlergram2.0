@@ -1,9 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './navbar.js'; // Navbar importieren
 
 function App() {
   return (
     <div className="App">
+      <Navbar /> {/* Navbar hier einfügen */}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
