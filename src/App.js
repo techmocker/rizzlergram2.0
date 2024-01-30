@@ -10,15 +10,16 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Epic Palworld GameServer.
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://store.steampowered.com/app/1623730/Palworld/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          <p>Play Palworld:</p>
+          Server: losem.shout.li
         </a>
       </header>
     </div>
