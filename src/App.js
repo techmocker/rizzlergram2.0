@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './navbar.js';
+import { FaGamepad } from "react-icons/fa";
 
 function App() {
   return (
@@ -9,6 +10,9 @@ function App() {
       <Navbar />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+          <h3>
+             Lets go for a <FaGamepad /> ?
+          </h3>
         <p>
           Epic Palworld GameServer.
         </p>
